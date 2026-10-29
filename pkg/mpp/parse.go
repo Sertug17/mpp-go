@@ -551,7 +551,7 @@ func ParsePaymentReceipt(header string) (*Receipt, error) {
 func FormatPaymentReceipt(r *Receipt) string {
 	data := map[string]any{
 		"status":    r.Status,
-		"timestamp": r.Timestamp.UTC().Format("2006-01-02T15:04:05.000Z"),
+		"timestamp": r.Timestamp.UTC().Format(time.RFC3339Nano),
 		"reference": r.Reference,
 	}
 	if r.Method != "" {
